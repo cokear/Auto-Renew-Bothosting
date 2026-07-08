@@ -1,10 +1,9 @@
 name: Auto Renew Bot-hosting
 
 on:
-  schedule:
-    - cron: '0 1 * * *' # 每天UTC 1点 (北京时间9点, 一般都会推迟),自行根据服务到期时间调整
+  repository_dispatch:
+    types: [newbot]
   workflow_dispatch:
-
 jobs:
   Renew-bot:
     runs-on: ubuntu-latest
